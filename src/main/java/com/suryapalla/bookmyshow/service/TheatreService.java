@@ -4,9 +4,11 @@ import com.suryapalla.bookmyshow.model.City;
 import com.suryapalla.bookmyshow.model.Theatre;
 import com.suryapalla.bookmyshow.repository.CityRepository;
 import com.suryapalla.bookmyshow.repository.TheatreRepository;
+import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,5 +30,9 @@ public class TheatreService {
         city.getTheatres().add(savedTheatre);
         cityService.saveCity(city);
         return savedTheatre;
+    }
+
+    public List<Theatre> getTheatreByCity(String city){
+        return cityService.getAllTheatresByCityName(city);
     }
 }

@@ -1,13 +1,16 @@
 package com.suryapalla.bookmyshow.service;
 
 import com.suryapalla.bookmyshow.model.ShowSeat;
+import com.suryapalla.bookmyshow.model.Theatre;
 import com.suryapalla.bookmyshow.model.Ticket;
 import com.suryapalla.bookmyshow.model.constant.ShowSeatStatus;
+import com.suryapalla.bookmyshow.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,6 +18,7 @@ public class TicketService {
 
     @Autowired
     private ShowSeatService showSeatService;
+
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Ticket bookTicket(List<Integer> showSeatIds, Integer userId) throws Exception{
@@ -42,4 +46,6 @@ public class TicketService {
     public String greet(){
         return "Hello world!";
     }
+
+
 }

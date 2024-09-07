@@ -1,5 +1,6 @@
 package com.suryapalla.bookmyshow.controller;
 
+import com.suryapalla.bookmyshow.dto.UserDetailsResponseDTO;
 import com.suryapalla.bookmyshow.dto.UserLoginRequestDTO;
 import com.suryapalla.bookmyshow.dto.UserRegistrationRequestDTO;
 import com.suryapalla.bookmyshow.model.User;
@@ -34,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity getUserProfile(@AuthenticationPrincipal UserDetails user) {
+    public ResponseEntity<UserDetailsResponseDTO> getUserProfile(@AuthenticationPrincipal UserDetails user) {
         return ResponseEntity.ok().body(userService.getUserProfile(user.getUsername()));
     }
 
